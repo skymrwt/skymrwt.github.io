@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>第一个标题 | 汪涛</title>
+  <title>正则 | 汪涛</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="二级Create a new post1$ hexo new &quot;My New Post&quot; More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo dep">
+  <meta name="description" content="* 匹配前面一个表达式0次或多次,等价于{0,}+ 匹配前面一个表达式1次或多次,等价于{1,}? 匹配前面一个表达式0次或1次,等价于{0,1} test方法1regexObj.test(str)  regexObj 为正则表达式 str 用来与正则表达式匹配的字符串 返回值 如果正则表达式与指定的字符串匹配 ，返回true；否则false。  exec方法1regexObj.exec(str)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一个标题">
+<meta property="og:title" content="正则">
 <meta property="og:url" content="http://yoursite.com/2017/10/28/hello-world/index.html">
 <meta property="og:site_name" content="汪涛">
-<meta property="og:description" content="二级Create a new post1$ hexo new &quot;My New Post&quot; More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo dep">
+<meta property="og:description" content="* 匹配前面一个表达式0次或多次,等价于{0,}+ 匹配前面一个表达式1次或多次,等价于{1,}? 匹配前面一个表达式0次或1次,等价于{0,1} test方法1regexObj.test(str)  regexObj 为正则表达式 str 用来与正则表达式匹配的字符串 返回值 如果正则表达式与指定的字符串匹配 ，返回true；否则false。  exec方法1regexObj.exec(str)">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-12T07:03:30.468Z">
+<meta property="og:updated_time" content="2018-08-12T09:27:26.487Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第一个标题">
-<meta name="twitter:description" content="二级Create a new post1$ hexo new &quot;My New Post&quot; More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo dep">
+<meta name="twitter:title" content="正则">
+<meta name="twitter:description" content="* 匹配前面一个表达式0次或多次,等价于{0,}+ 匹配前面一个表达式1次或多次,等价于{1,}? 匹配前面一个表达式0次或1次,等价于{0,1} test方法1regexObj.test(str)  regexObj 为正则表达式 str 用来与正则表达式匹配的字符串 返回值 如果正则表达式与指定的字符串匹配 ，返回true；否则false。  exec方法1regexObj.exec(str)">
   
     <link rel="alternate" href="/atom.xml" title="汪涛" type="application/atom+xml">
   
@@ -78,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      第一个标题
+      正则
     </h1>
   
 
@@ -86,14 +86,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="二级"><a href="#二级" class="headerlink" title="二级"></a>二级</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p><code>*</code> 匹配前面一个表达式0次或多次,等价于<code>{0,}</code><br><code>+</code> 匹配前面一个表达式1次或多次,等价于<code>{1,}</code><br><code>?</code> 匹配前面一个表达式0次或1次,等价于<code>{0,1}</code></p>
+<h5 id="test方法"><a href="#test方法" class="headerlink" title="test方法"></a>test方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">regexObj.test(str)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>regexObj</code> 为正则表达式</li>
+<li><code>str</code> 用来与正则表达式匹配的字符串</li>
+<li><code>返回值</code> 如果正则表达式与指定的字符串匹配 ，返回true；否则false。</li>
+</ul>
+<h5 id="exec方法"><a href="#exec方法" class="headerlink" title="exec方法"></a>exec方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">regexObj.exec(str)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>regexObj</code> 为正则表达式</li>
+<li><code>str</code> 用来与正则表达式匹配的字符串</li>
+<li><p><code>返回值</code> 匹配成功,返回一个数组,匹配失败,返回null  </p>
+<h5 id="match方法"><a href="#match方法" class="headerlink" title="match方法"></a>match方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.match(regexp)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>返回值</code> 匹配成功返回数组,否则返回null</p>
+</li>
+</ul>
+<h5 id="search方法"><a href="#search方法" class="headerlink" title="search方法"></a>search方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.search(regexp)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>返回值</code> 返回匹配到的位置索引，或者在失败时返回-1</li>
+</ul>
 
       
     </div>
@@ -155,7 +168,7 @@
           </li>
         
           <li>
-            <a href="/2017/10/28/hello-world/">第一个标题</a>
+            <a href="/2017/10/28/hello-world/">正则</a>
           </li>
         
       </ul>
