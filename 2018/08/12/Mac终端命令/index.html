@@ -3,16 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>vue经验 | Mr_WT</title>
+  <title>Mac终端命令 | Mr_WT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="vue经验">
-<meta property="og:url" content="http://yoursite.com/2018/08/12/vue经验/index.html">
+  <meta name="description" content="显示隐藏文件夹(更改true和false)defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder 在Mac、Linux 终端显示 Git 当前所在分支进入你的home目录cd ~编辑.bashrc文件vi .bashrc将下面的代码加入到文件的最后处function git_branch {">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac终端命令">
+<meta property="og:url" content="http://yoursite.com/2018/08/12/Mac终端命令/index.html">
 <meta property="og:site_name" content="Mr_WT">
+<meta property="og:description" content="显示隐藏文件夹(更改true和false)defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder 在Mac、Linux 终端显示 Git 当前所在分支进入你的home目录cd ~编辑.bashrc文件vi .bashrc将下面的代码加入到文件的最后处function git_branch {">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-12T07:01:38.772Z">
+<meta property="og:updated_time" content="2018-08-12T12:58:23.924Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue经验">
+<meta name="twitter:title" content="Mac终端命令">
+<meta name="twitter:description" content="显示隐藏文件夹(更改true和false)defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder 在Mac、Linux 终端显示 Git 当前所在分支进入你的home目录cd ~编辑.bashrc文件vi .bashrc将下面的代码加入到文件的最后处function git_branch {">
   
     <link rel="alternate" href="/atom.xml" title="Mr_WT" type="application/atom+xml">
   
@@ -61,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-vue经验" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Mac终端命令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/08/12/vue经验/" class="article-date">
-  <time datetime="2018-08-12T07:01:38.000Z" itemprop="datePublished">2018-08-12</time>
+    <a href="/2018/08/12/Mac终端命令/" class="article-date">
+  <time datetime="2018-08-12T12:58:00.000Z" itemprop="datePublished">2018-08-12</time>
 </a>
     
   </div>
@@ -75,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      vue经验
+      Mac终端命令
     </h1>
   
 
@@ -83,11 +86,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h6 id="显示隐藏文件夹-更改true和false"><a href="#显示隐藏文件夹-更改true和false" class="headerlink" title="显示隐藏文件夹(更改true和false)"></a>显示隐藏文件夹(更改true和false)</h6><p>defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder</p>
+<h5 id="在Mac、Linux-终端显示-Git-当前所在分支"><a href="#在Mac、Linux-终端显示-Git-当前所在分支" class="headerlink" title="在Mac、Linux 终端显示 Git 当前所在分支"></a>在Mac、Linux 终端显示 Git 当前所在分支</h5><p>进入你的home目录<br>cd ~<br>编辑.bashrc文件<br>vi .bashrc<br>将下面的代码加入到文件的最后处<br>function git_branch {<br>   branch=”<code>git branch 2&gt;/dev/null | grep &quot;^\*&quot; | sed -e &quot;s/^\*\ //&quot;</code>“<br>   if [ “${branch}” != “” ];then<br>       if [ “${branch}” = “(no branch)” ];then<br>           branch=”(<code>git rev-parse --short HEAD</code>…)”<br>       fi<br>       echo “ ($branch)”<br>   fi<br>}</p>
+<p>export PS1=’\u@\h [\033[01;36m]\W[\033[01;32m]$(git_branch)[\033[00m] \$ ‘<br>保存退出<br>执行加载命令<br>source ./.bashrc<br>完成<br>Mac 下面启动的 shell 是 login shell，所以加载的配置文件是.bash_profile，不会加载.bashrc。如果你是 Mac 用户的话，需要再执行下面的命令，这样每次开机后才会自动生效：</p>
+<p>echo “[ -r ~/.bashrc ] &amp;&amp; source ~/.bashrc” &gt;&gt; .bash_profile</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/12/vue经验/" data-id="cjkquuuw500027m0b4o1hygkd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/08/12/Mac终端命令/" data-id="cjkquuuvz00007m0bph71af4l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -96,15 +103,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/08/12/REG/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          正则及其应用
-        
-      </div>
-    </a>
   
+    <a href="/2018/08/12/REG/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">正则及其应用</div>
+    </a>
   
 </nav>
 

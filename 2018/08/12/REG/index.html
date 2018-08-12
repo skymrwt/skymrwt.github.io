@@ -3,15 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Mr_WT</title>
+  <title>正则及其应用 | Mr_WT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Mr_WT">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="* 匹配前面一个表达式0次或多次,等价于{0,}+ 匹配前面一个表达式1次或多次,等价于{1,}? 匹配前面一个表达式0次或1次,等价于{0,1} test方法1regexObj.test(str)  regexObj 为正则表达式 str 用来与正则表达式匹配的字符串 返回值 如果正则表达式与指定的字符串匹配 ，返回true；否则false。  exec方法1regexObj.exec(str)">
+<meta name="keywords" content="正则&#x2F;cookie正则取值">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则及其应用">
+<meta property="og:url" content="http://yoursite.com/2018/08/12/REG/index.html">
 <meta property="og:site_name" content="Mr_WT">
+<meta property="og:description" content="* 匹配前面一个表达式0次或多次,等价于{0,}+ 匹配前面一个表达式1次或多次,等价于{1,}? 匹配前面一个表达式0次或1次,等价于{0,1} test方法1regexObj.test(str)  regexObj 为正则表达式 str 用来与正则表达式匹配的字符串 返回值 如果正则表达式与指定的字符串匹配 ，返回true；否则false。  exec方法1regexObj.exec(str)">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-12T12:53:40.174Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mr_WT">
+<meta name="twitter:title" content="正则及其应用">
+<meta name="twitter:description" content="* 匹配前面一个表达式0次或多次,等价于{0,}+ 匹配前面一个表达式1次或多次,等价于{1,}? 匹配前面一个表达式0次或1次,等价于{0,1} test方法1regexObj.test(str)  regexObj 为正则表达式 str 用来与正则表达式匹配的字符串 返回值 如果正则表达式与指定的字符串匹配 ，返回true；否则false。  exec方法1regexObj.exec(str)">
   
     <link rel="alternate" href="/atom.xml" title="Mr_WT" type="application/atom+xml">
   
@@ -60,49 +65,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Mac终端命令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/12/Mac终端命令/" class="article-date">
-  <time datetime="2018-08-12T12:58:00.000Z" itemprop="datePublished">2018-08-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/12/Mac终端命令/">Mac终端命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="显示隐藏文件夹-更改true和false"><a href="#显示隐藏文件夹-更改true和false" class="headerlink" title="显示隐藏文件夹(更改true和false)"></a>显示隐藏文件夹(更改true和false)</h6><p>defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder</p>
-<h5 id="在Mac、Linux-终端显示-Git-当前所在分支"><a href="#在Mac、Linux-终端显示-Git-当前所在分支" class="headerlink" title="在Mac、Linux 终端显示 Git 当前所在分支"></a>在Mac、Linux 终端显示 Git 当前所在分支</h5><p>进入你的home目录<br>cd ~<br>编辑.bashrc文件<br>vi .bashrc<br>将下面的代码加入到文件的最后处<br>function git_branch {<br>   branch=”<code>git branch 2&gt;/dev/null | grep &quot;^\*&quot; | sed -e &quot;s/^\*\ //&quot;</code>“<br>   if [ “${branch}” != “” ];then<br>       if [ “${branch}” = “(no branch)” ];then<br>           branch=”(<code>git rev-parse --short HEAD</code>…)”<br>       fi<br>       echo “ ($branch)”<br>   fi<br>}</p>
-<p>export PS1=’\u@\h [\033[01;36m]\W[\033[01;32m]$(git_branch)[\033[00m] \$ ‘<br>保存退出<br>执行加载命令<br>source ./.bashrc<br>完成<br>Mac 下面启动的 shell 是 login shell，所以加载的配置文件是.bash_profile，不会加载.bashrc。如果你是 Mac 用户的话，需要再执行下面的命令，这样每次开机后才会自动生效：</p>
-<p>echo “[ -r ~/.bashrc ] &amp;&amp; source ~/.bashrc” &gt;&gt; .bash_profile</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/12/Mac终端命令/" data-id="cjkquuuvz00007m0bph71af4l" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-REG" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-REG" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/08/12/REG/" class="article-date">
   <time datetime="2018-08-12T07:01:38.000Z" itemprop="datePublished">2018-08-12</time>
@@ -115,8 +78,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/12/REG/">正则及其应用</a>
+    <h1 class="article-title" itemprop="name">
+      正则及其应用
     </h1>
   
 
@@ -158,46 +121,28 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-vue经验" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/12/vue经验/" class="article-date">
-  <time datetime="2018-08-12T07:01:38.000Z" itemprop="datePublished">2018-08-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2018/08/12/Mac终端命令/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/12/vue经验/">vue经验</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+          Mac终端命令
         
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/08/12/vue经验/" data-id="cjkquuuw500027m0b4o1hygkd" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
+      </div>
+    </a>
+  
+  
+    <a href="/2018/08/12/vue经验/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">vue经验</div>
+    </a>
+  
+</nav>
+
   
 </article>
-
-
-  
 
 </section>
         
