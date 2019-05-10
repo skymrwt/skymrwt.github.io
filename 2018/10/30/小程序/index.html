@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="小程序登录授权流程1.由于微信限制,使用button获取用户信息,在获取用户信息后,通过wx.login获取code,将code提交给后端进行解析用户信息(openId 和 unionId),执行顺序不能乱,否则后端将解析失败不调用wx.login通过wx.getUserInfo同样够获取用户信息,为何还要调用wx.login呢?因为调用wx.login获取的code,后端能够解析出用的openI">
+<meta name="description" content="小程序运行机制1.小程序的逻辑层和渲染层是分开的，逻辑层运行在 JSCore 中，并没有一个完整浏览器对象，因而缺少相关的DOM API和BOM API。这一区别导致了前端开发非常熟悉的一些库，例如 jQuery、 Zepto 等，在小程序中是无法运行的。同时 JSCore 的环境同 NodeJS 环境也是不尽相同，所以一些 NPM 的包在小程序中也是无法运行的。2.小程序开发过程中需要面对的是两">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小程序">
-<meta property="og:url" content="https://sunstaotao.github.io/2018/10/30/小程序/index.html">
+<meta property="og:url" content="https://skymrwt.github.io/2018/10/30/小程序/index.html">
 <meta property="og:site_name" content="Johnathon">
-<meta property="og:description" content="小程序登录授权流程1.由于微信限制,使用button获取用户信息,在获取用户信息后,通过wx.login获取code,将code提交给后端进行解析用户信息(openId 和 unionId),执行顺序不能乱,否则后端将解析失败不调用wx.login通过wx.getUserInfo同样够获取用户信息,为何还要调用wx.login呢?因为调用wx.login获取的code,后端能够解析出用的openI">
+<meta property="og:description" content="小程序运行机制1.小程序的逻辑层和渲染层是分开的，逻辑层运行在 JSCore 中，并没有一个完整浏览器对象，因而缺少相关的DOM API和BOM API。这一区别导致了前端开发非常熟悉的一些库，例如 jQuery、 Zepto 等，在小程序中是无法运行的。同时 JSCore 的环境同 NodeJS 环境也是不尽相同，所以一些 NPM 的包在小程序中也是无法运行的。2.小程序开发过程中需要面对的是两">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-29T10:45:24.230Z">
+<meta property="og:image" content="https://developers.weixin.qq.com/miniprogram/dev/image/quickstart/basic/4-1.png?t=19032922">
+<meta property="og:updated_time" content="2019-04-01T03:27:55.684Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小程序">
-<meta name="twitter:description" content="小程序登录授权流程1.由于微信限制,使用button获取用户信息,在获取用户信息后,通过wx.login获取code,将code提交给后端进行解析用户信息(openId 和 unionId),执行顺序不能乱,否则后端将解析失败不调用wx.login通过wx.getUserInfo同样够获取用户信息,为何还要调用wx.login呢?因为调用wx.login获取的code,后端能够解析出用的openI">
+<meta name="twitter:description" content="小程序运行机制1.小程序的逻辑层和渲染层是分开的，逻辑层运行在 JSCore 中，并没有一个完整浏览器对象，因而缺少相关的DOM API和BOM API。这一区别导致了前端开发非常熟悉的一些库，例如 jQuery、 Zepto 等，在小程序中是无法运行的。同时 JSCore 的环境同 NodeJS 环境也是不尽相同，所以一些 NPM 的包在小程序中也是无法运行的。2.小程序开发过程中需要面对的是两">
+<meta name="twitter:image" content="https://developers.weixin.qq.com/miniprogram/dev/image/quickstart/basic/4-1.png?t=19032922">
 
 
 
@@ -119,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="https://sunstaotao.github.io/2018/10/30/小程序/"/>
+  <link rel="canonical" href="https://skymrwt.github.io/2018/10/30/小程序/"/>
 
 
 
@@ -232,7 +234,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sunstaotao.github.io/2018/10/30/小程序/">
+    <link itemprop="mainEntityOfPage" href="https://skymrwt.github.io/2018/10/30/小程序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Johnathon">
@@ -299,9 +301,41 @@
       
 
       
-        <h3 id="小程序登录授权流程"><a href="#小程序登录授权流程" class="headerlink" title="小程序登录授权流程"></a>小程序登录授权流程</h3><p>1.由于微信限制,使用<code>button</code>获取用户信息,在获取用户信息后,通过<code>wx.login</code>获取<code>code</code>,将<code>code</code>提交给后端进行解析用户信息(openId 和 unionId),执行顺序不能乱,否则后端将解析失败<br>不调用<code>wx.login</code>通过<code>wx.getUserInfo</code>同样够获取用户信息,为何还要调用<code>wx.login</code>呢?<br>因为调用<code>wx.login</code>获取的code,后端能够解析出用的openId 和 unionId,可以作为用户登录的唯一标识<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">以下为通过wx.getUserInfo获取的用户信息,没有openid和unionid</span><br><span class="line">&#123;</span><br><span class="line">    avatarUrl : &quot;https:391dicEhabeAlkf33pH7nRPvibRFmmzODqTicdn0tibDRPib8pUfib470DAcgJ0nbhRGgoSmfYOCNVZeibv6g/132&quot;</span><br><span class="line">    city : &quot;Anqing&quot;</span><br><span class="line">    country : &quot;China&quot;</span><br><span class="line">    gender : 1</span><br><span class="line">    language : &quot;zh_CN&quot;</span><br><span class="line">    nickName : &quot;柚子&quot;</span><br><span class="line">    province : &quot;Anhui&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    encryptedData : &quot;6KixHrpi/w==&quot;//包括敏感数据在内的完整用户信息的加密数据</span><br><span class="line">    errMsg : &quot;getUserInfo:ok&quot;</span><br><span class="line">    iv : &quot;njHtGAprzx5OI5TRoaHfYg==&quot;//加密算法的初始向量</span><br><span class="line">    rawData : &quot;&#123;&quot;nickNam32&quot;&#125;&quot;//不包括敏感信息的原始数据字符串，用于计算签名</span><br><span class="line">    signature : &quot;dbf384cc019dfa493bed36951ef574465e74aede&quot;//使用 sha1( rawData + sessionkey ) 得到字符串，用于校验用户信息</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h3 id="小程序运行机制"><a href="#小程序运行机制" class="headerlink" title="小程序运行机制"></a>小程序运行机制</h3><p>1.小程序的逻辑层和渲染层是分开的，逻辑层运行在 JSCore 中，并没有一个完整浏览器对象，因而缺少相关的DOM API和BOM API。这一区别导致了前端开发非常熟悉的一些库，例如 jQuery、 Zepto 等，在小程序中是无法运行的。同时 JSCore 的环境同 NodeJS 环境也是不尽相同，所以一些 NPM 的包在小程序中也是无法运行的。<br>2.小程序开发过程中需要面对的是两大操作系统 iOS 和 Android 的微信客户端，以及用于辅助开发的小程序开发者工具，小程序中三大运行环境也是有所区别的</p>
+<table>
+<thead>
+<tr>
+<th>运行环境</th>
+<th>逻辑层</th>
+<th>渲染层</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IOS</td>
+<td>JavaScriptCore</td>
+<td>WKWebView</td>
+</tr>
+<tr>
+<td>Android</td>
+<td>V8</td>
+<td>chromium定制内核</td>
+</tr>
+<tr>
+<td>小程序开发者工具</td>
+<td>NWJS</td>
+<td>Chrome WebView</td>
+</tr>
+</tbody>
+</table>
+<h3 id="渲染层和逻辑层"><a href="#渲染层和逻辑层" class="headerlink" title="渲染层和逻辑层"></a>渲染层和逻辑层</h3><p>  首先，我们来简单了解下小程序的运行环境。小程序的运行环境分成渲染层和逻辑层，其中 WXML 模板和 WXSS 样式工作在渲染层，JS 脚本工作在逻辑层。</p>
+<p>  <strong>划重点</strong><br>  小程序的渲染层和逻辑层分别由2个线程管理：渲染层的界面使用了WebView 进行渲染；逻辑层采用JsCore线程运行JS脚本。一个小程序存在多个界面，所以渲染层存在多个WebView线程，这两个线程的通信会经由微信客户端（下文中也会采用Native来代指微信客户端）做中转，逻辑层发送网络请求也经由Native转发，小程序的通信模型下图所示。<br>  <img src="https://developers.weixin.qq.com/miniprogram/dev/image/quickstart/basic/4-1.png?t=19032922" alt="通信模型"></p>
+<h3 id="小程序登录授权流程"><a href="#小程序登录授权流程" class="headerlink" title="小程序登录授权流程"></a>小程序登录授权流程</h3><p>1.由于微信限制,使用<code>button</code>获取用户信息,在获取用户信息后,通过<code>wx.login</code>获取<code>code</code>,将<code>code</code>提交给后端进行解析用户信息(openId 和 unionId),执行顺序不能乱,否则后端将解析失败<br>不调用<code>wx.login</code>通过<code>wx.getUserInfo</code>同样够获取用户信息,为何还要调用<code>wx.login</code>呢?<br>因为调用<code>wx.login</code>获取的code,后端能够解析出用的openId 和 unionId,可以作为用户登录的唯一标识<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">以下为通过wx.getUserInfo获取的用户信息,没有openid和unionid</span><br><span class="line">&#123;</span><br><span class="line">    avatarUrl : <span class="string">"https:391dicEhabeAlkf33pH7nRPvibRFmmzODqTicdn0tibDRPib8pUfib470DAcgJ0nbhRGgoSmfYOCNVZeibv6g/132"</span></span><br><span class="line">    city : <span class="string">"Anqing"</span></span><br><span class="line">    country : <span class="string">"China"</span></span><br><span class="line">    gender : <span class="number">1</span></span><br><span class="line">    language : <span class="string">"zh_CN"</span></span><br><span class="line">    nickName : <span class="string">"柚子"</span></span><br><span class="line">    province : <span class="string">"Anhui"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    encryptedData : <span class="string">"6KixHrpi/w=="</span><span class="comment">//包括敏感数据在内的完整用户信息的加密数据</span></span><br><span class="line">    errMsg : <span class="string">"getUserInfo:ok"</span></span><br><span class="line">    iv : <span class="string">"njHtGAprzx5OI5TRoaHfYg=="</span><span class="comment">//加密算法的初始向量</span></span><br><span class="line">    rawData : <span class="string">"&#123;"</span>nickNam32<span class="string">"&#125;"</span><span class="comment">//不包括敏感信息的原始数据字符串，用于计算签名</span></span><br><span class="line">    signature : <span class="string">"dbf384cc019dfa493bed36951ef574465e74aede"</span><span class="comment">//使用 sha1( rawData + sessionkey ) 得到字符串，用于校验用户信息</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <hr>
-<h3 id="小程序报错-Uncaught-TypeError-Converting-circular-structure-to-JSON-和-an-object-with-circular-reference-can-not-logged"><a href="#小程序报错-Uncaught-TypeError-Converting-circular-structure-to-JSON-和-an-object-with-circular-reference-can-not-logged" class="headerlink" title="小程序报错: Uncaught TypeError: Converting circular structure to JSON 和 an object with circular reference can not logged"></a>小程序报错: Uncaught TypeError: Converting circular structure to JSON 和 an object with circular reference can not logged</h3><h2 id="真机测试下会出现如此报错-可能是由于console-log过多或者同一时间内apply过多造成-console过程中微信X5会对对象进行JSON-Stringify-逻辑层与渲染层通信同理"><a href="#真机测试下会出现如此报错-可能是由于console-log过多或者同一时间内apply过多造成-console过程中微信X5会对对象进行JSON-Stringify-逻辑层与渲染层通信同理" class="headerlink" title="真机测试下会出现如此报错,可能是由于console.log过多或者同一时间内apply过多造成,console过程中微信X5会对对象进行JSON.Stringify , 逻辑层与渲染层通信同理"></a>真机测试下会出现如此报错,可能是由于console.log过多或者同一时间内apply过多造成,console过程中微信X5会对对象进行JSON.Stringify , 逻辑层与渲染层通信同理</h2>
+<h3 id="小程序报错"><a href="#小程序报错" class="headerlink" title="小程序报错:"></a>小程序报错:</h3><p><code>Uncaught TypeError: Converting circular structure to JSON 和 an object with circular reference can not logged</code><br>    真机测试下会出现如此报错,可能是由于console.log过多或者同一时间内apply过多造成,console过程中微信X5会对对象进行JSON.Stringify , 逻辑层与渲染层通信同理</p>
+<pre><code>还有种情况就是获取了app实例 绑定到了页面中data里去了,也会引发此错误
+</code></pre><hr>
+
       
     </div>
     
@@ -423,7 +457,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -447,6 +481,16 @@
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.weibo.com/270537755" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-globe"></i>微博</a>
+                  </span>
+                
+            </div>
+          
 
           
           
@@ -469,7 +513,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序登录授权流程"><span class="nav-number">1.</span> <span class="nav-text">小程序登录授权流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序报错-Uncaught-TypeError-Converting-circular-structure-to-JSON-和-an-object-with-circular-reference-can-not-logged"><span class="nav-number">2.</span> <span class="nav-text">小程序报错: Uncaught TypeError: Converting circular structure to JSON 和 an object with circular reference can not logged</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#真机测试下会出现如此报错-可能是由于console-log过多或者同一时间内apply过多造成-console过程中微信X5会对对象进行JSON-Stringify-逻辑层与渲染层通信同理"><span class="nav-number"></span> <span class="nav-text">真机测试下会出现如此报错,可能是由于console.log过多或者同一时间内apply过多造成,console过程中微信X5会对对象进行JSON.Stringify , 逻辑层与渲染层通信同理</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序运行机制"><span class="nav-number">1.</span> <span class="nav-text">小程序运行机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渲染层和逻辑层"><span class="nav-number">2.</span> <span class="nav-text">渲染层和逻辑层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序登录授权流程"><span class="nav-number">3.</span> <span class="nav-text">小程序登录授权流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序报错"><span class="nav-number">4.</span> <span class="nav-text">小程序报错:</span></a></li></ol></div>
             
 
           </div>
