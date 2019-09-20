@@ -229,6 +229,147 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://skymrwt.github.io/2018/08/12/REG/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Johnathon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Johnathon">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/12/REG/" itemprop="url">正则及其应用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-12T15:01:38+08:00">
+                2018-08-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><code>*</code> 匹配前面一个表达式0次或多次,等价于<code>{0,}</code><br><code>+</code> 匹配前面一个表达式1次或多次,等价于<code>{1,}</code><br><code>?</code> 匹配前面一个表达式0次或1次,等价于<code>{0,1}</code></p>
+<h5 id="test方法"><a href="#test方法" class="headerlink" title="test方法"></a>test方法</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">regexObj.test(str)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>regexObj</code> 为正则表达式</li>
+<li><code>str</code> 用来与正则表达式匹配的字符串</li>
+<li><code>返回值</code> 如果正则表达式与指定的字符串匹配 ，返回true；否则false。</li>
+</ul>
+<h5 id="exec方法"><a href="#exec方法" class="headerlink" title="exec方法"></a>exec方法</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">regexObj.exec(str)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>regexObj</code> 为正则表达式</li>
+<li><code>str</code> 用来与正则表达式匹配的字符串</li>
+<li><code>返回值</code> 匹配成功,返回一个数组,匹配失败,返回null  </li>
+</ul>
+<h5 id="match方法"><a href="#match方法" class="headerlink" title="match方法"></a>match方法</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.match(regexp)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>返回值</code> 匹配成功返回数组,否则返回null</li>
+</ul>
+<h5 id="search方法"><a href="#search方法" class="headerlink" title="search方法"></a>search方法</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str.search(regexp)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>返回值</code> 返回匹配到的位置索引，或者在失败时返回-1</li>
+</ul>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><h5 id="Cookie-取值-—MDN"><a href="#Cookie-取值-—MDN" class="headerlink" title="Cookie 取值  —MDN"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie" target="_blank" rel="noopener">Cookie 取值  —MDN</a></h5><p><em>正则取cookie中键对应的值</em><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie = <span class="string">"test1=Hello"</span>;</span><br><span class="line"><span class="built_in">document</span>.cookie = <span class="string">"test2=World"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myCookie = <span class="built_in">document</span>.cookie.replace(<span class="regexp">/(?:(?:^|.*;\s*)test2\s*\=\s*([^;]*).*$)|^.*$/</span>, <span class="string">"$1"</span>);</span><br><span class="line"></span><br><span class="line">alert(myCookie);</span><br><span class="line"><span class="comment">// 显示: World</span></span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://skymrwt.github.io/2018/08/12/项目零散经验/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -408,7 +549,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -421,7 +562,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
