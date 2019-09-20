@@ -89,7 +89,7 @@
 <meta property="og:image" content="http://img.zhufengpeixun.cn/webpack.jpeg">
 <meta property="og:image" content="http://img.fullstackjavascript.cn/webpack1.png">
 <meta property="og:image" content="http://img.fullstackjavascript.cn/webpack2.png">
-<meta property="og:updated_time" content="2019-09-20T14:20:36.841Z">
+<meta property="og:updated_time" content="2019-09-20T14:26:11.478Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从0搭建自己的webpack开发环境">
 <meta name="twitter:description" content="1.什么是Webpack？webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler),当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle 使用Webpack作为前端构建工具：  代码转换：TypeScript 编译成 J">
@@ -314,6 +314,7 @@
 <li>代码校验：在代码被提交到仓库前需要校验代码是否符合规范，以及单元测试是否通过。</li>
 <li>自动发布：更新完代码后，自动构建出线上发布代码并传输给发布系统。</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">// webpack 默认支持 模块的写法 commonjs 规范 node  </span><br><span class="line"></span><br><span class="line">// webpack-cli 解析用户传递的参数</span><br><span class="line"></span><br><span class="line">// es6 规范 esmodule</span><br><span class="line"></span><br><span class="line">// 把这个模块打包 解析出浏览器可以识别的代码</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// webpack webpack-cli 0配置的方式来打包</span><br><span class="line"></span><br><span class="line">// --save-dev</span><br><span class="line"></span><br><span class="line">// npx npm 5.2之后出来的 npx webpack</span><br><span class="line"></span><br><span class="line">// 两个模式 开发模式 生产环境</span><br><span class="line"></span><br><span class="line">// --mode 传入</span><br><span class="line"></span><br><span class="line">// npm run scripts 里面可以配置对应的命令</span><br><span class="line"></span><br><span class="line">// webpack配置文件默认叫 webpack.config.js webpack.file.js</span><br><span class="line"></span><br><span class="line">// 通过--config 指定执行的文件是哪一个</span><br><span class="line"></span><br><span class="line">    // 1) 就是默认引用base 传入模式</span><br><span class="line"></span><br><span class="line">    // 2) 分别引入 dev,prod,在特定地方引入base</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// webpack-merge 主要用来合并配置文件的</span><br><span class="line"></span><br><span class="line">// 如果是开发环境 要使用webpack-dev-server </span><br><span class="line"></span><br><span class="line">// webpack-dev-server 是在内存中打包的 不会产生实体文件</span><br><span class="line"></span><br><span class="line">// 自动生成html文件并且引入打包后的js内容</span><br><span class="line"></span><br><span class="line">// loader 的执行顺序 默认是从下往上执行 从右边向左边</span><br><span class="line"></span><br><span class="line">// 先解析css</span><br><span class="line"></span><br><span class="line">// css-loader 会解析css语法  style-loader 会将解析的css 变成style标签插入到页面中</span><br><span class="line"></span><br><span class="line">// 解析css 需要两个loader css-loader style-loader</span><br><span class="line"></span><br><span class="line">// 预处理器 .scss node-sass sass-loader</span><br><span class="line"></span><br><span class="line">//         .less less     less-loader </span><br><span class="line"></span><br><span class="line">//         .stylus stylus stylus-loader</span><br><span class="line"></span><br><span class="line">// 图片 + icon</span><br><span class="line"></span><br><span class="line">// js</span><br><span class="line"></span><br><span class="line">es6-es5 有些api 不是es6语法  装饰器 类的属性</span><br><span class="line"></span><br><span class="line">babel 转化功能 vue-cli 基于babel6来实现的</span><br><span class="line"></span><br><span class="line">babel7</span><br><span class="line"></span><br><span class="line">默认会调用 @babel/core会转化代码，转化的时候需要用 @babel/presets-env 转化成es5</span><br><span class="line"></span><br><span class="line">@babel/core @babel/preset-env  babel-loader</span><br></pre></td></tr></table></figure>
 <p><strong>在<code>webpack</code>应用中有两个核心</strong>:</p>
 <ul>
 <li>1) 模块转换器，用于把模块原内容按照需求转换成新内容，可以加载非 JS 模块</li>
@@ -489,7 +490,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -502,7 +503,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

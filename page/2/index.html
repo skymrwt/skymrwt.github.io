@@ -79,14 +79,13 @@
 
 
 
-<meta property="og:type" content="article">
-<meta property="og:title" content="About-React">
-<meta property="og:url" content="https://skymrwt.github.io/2018/10/13/About-React/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Johnathon">
+<meta property="og:url" content="https://skymrwt.github.io/page/2/index.html">
 <meta property="og:site_name" content="Johnathon">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-13T05:16:01.526Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About-React">
+<meta name="twitter:title" content="Johnathon">
 
 
 
@@ -116,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="https://skymrwt.github.io/2018/10/13/About-React/"/>
+  <link rel="canonical" href="https://skymrwt.github.io/page/2/"/>
 
 
 
 
 
-  <title>About-React | Johnathon</title>
+  <title>Johnathon</title>
   
 
 
@@ -141,7 +140,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +214,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -229,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://skymrwt.github.io/2018/10/13/About-React/">
+    <link itemprop="mainEntityOfPage" href="https://skymrwt.github.io/2018/08/12/项目零散经验/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Johnathon">
@@ -246,7 +246,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">About-React</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/12/项目零散经验/" itemprop="url">项目零散经验</a></h1>
         
 
         <div class="post-meta">
@@ -258,8 +260,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-13T13:15:27+08:00">
-                2018-10-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-12T15:01:38+08:00">
+                2018-08-12
               </time>
             
 
@@ -297,6 +299,29 @@
 
       
         
+          
+            <h4 id="表单选择文件"><a href="#表单选择文件" class="headerlink" title="表单选择文件"></a>表单选择文件</h4><p><strong>图片转16进制</strong></p>
+<p><code>imgUrl = URL.createObjectURL(e.path[0].files[0]);</code></p>
+<p><strong>图片转base64位</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var fi = e.path[0].files[0];</span><br><span class="line">var reader = new FileReader();</span><br><span class="line">reader.readAsDataURL(fi);</span><br><span class="line">console.log(reader.result,&apos;base64&apos;);</span><br></pre></td></tr></table></figure></p>
+<h5 id="火狐浏览器文件"><a href="#火狐浏览器文件" class="headerlink" title="火狐浏览器文件"></a>火狐浏览器文件</h5><p><code>e.explicitOriginalTarget.files[0]</code></p>
+<h5 id="判断浏览器类型"><a href="#判断浏览器类型" class="headerlink" title="判断浏览器类型"></a>判断浏览器类型</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function getExplore() &#123;</span><br><span class="line">  var Sys = &#123;&#125;;</span><br><span class="line">  var ua = navigator.userAgent.toLowerCase();</span><br><span class="line">  var s;</span><br><span class="line">  (s = ua.match(/rv:([\d.]+)\) like gecko/)) ? Sys.ie = s[1] :</span><br><span class="line">    (s = ua.match(/msie ([\d\.]+)/)) ? Sys.ie = s[1] :</span><br><span class="line">      (s = ua.match(/edge\/([\d\.]+)/)) ? Sys.edge = s[1] :</span><br><span class="line">        (s = ua.match(/firefox\/([\d\.]+)/)) ? Sys.firefox = s[1] :</span><br><span class="line">          (s = ua.match(/(?:opera|opr).([\d\.]+)/)) ? Sys.opera = s[1] :</span><br><span class="line">            (s = ua.match(/chrome\/([\d\.]+)/)) ? Sys.chrome = s[1] :</span><br><span class="line">              (s = ua.match(/version\/([\d\.]+).*safari/)) ? Sys.safari = s[1] : 0;</span><br><span class="line">  // 根据关系进行判断</span><br><span class="line">  if (Sys.ie) return (&apos;IE: &apos; + Sys.ie);</span><br><span class="line">  if (Sys.edge) return (&apos;EDGE: &apos; + Sys.edge);</span><br><span class="line">  if (Sys.firefox) return (&apos;Firefox: &apos; + Sys.firefox);</span><br><span class="line">  if (Sys.chrome) return (&apos;Chrome: &apos; + Sys.chrome);</span><br><span class="line">  if (Sys.opera) return (&apos;Opera: &apos; + Sys.opera);</span><br><span class="line">  if (Sys.safari) return (&apos;Safari: &apos; + Sys.safari);</span><br><span class="line">  return &apos;Unkonwn&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="兼容性问题"><a href="#兼容性问题" class="headerlink" title="兼容性问题"></a>兼容性问题</h4><p><em>在不同的浏览器下,上传文件的事件对象的属性不同</em></p>
+<ol>
+<li><p>谷歌浏览器<br><code>e.path[0].files[0]</code><br>可通过<code>URL.createObjectURL(e.path[0].files[0]);</code>将其转成16进制直接当做<code>img标签的src</code>使用</p>
+</li>
+<li><p>火狐浏览器<br><code>e.originalTarget.files[0]);</code><br>转换方法<code>URL.createObjectURL()</code></p>
+</li>
+<li><p>safari浏览器<br><code>e.target.files[0]);</code><br>转换方法<code>URL.createObjectURL()</code></p>
+</li>
+<li><p>360浏览器7.0版本<br>正则校验结果 <code>Chrome: 31.0.1650.57</code><br><code>e.target.files[0]);</code><br>转换方法<code>URL.createObjectURL()</code></p>
+</li>
+</ol>
+<p><strong>360浏览器7.0版本不支持<code>transform</code></strong><br>其使用的是 <em>Chrome: 31.0.1650.57</em> 内核  使用<code>-webkit-</code>前缀生效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">transform: translateX(-10px);</span><br><span class="line">-webkit-transform: translateX(-10px);</span><br><span class="line">-moz-transform: translateX(-10px);</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+          
+        
       
     </div>
     
@@ -313,32 +338,12 @@
       
 
       
-      
+
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/10/11/About-Vue/" rel="next" title="About-Vue">
-                <i class="fa fa-chevron-left"></i> About-Vue
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/30/小程序/" rel="prev" title="小程序">
-                小程序 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -348,11 +353,14 @@
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
@@ -360,15 +368,6 @@
 
 
           
-
-  
-    <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC80MzIxOC8xOTc2NA=="></div>
-    </div>
-
-  
-
-
 
         </div>
         
@@ -601,10 +600,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
@@ -633,17 +628,6 @@
 
 
 
-  
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
   
 
 
